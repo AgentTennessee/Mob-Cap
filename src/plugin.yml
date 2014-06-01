@@ -1,0 +1,52 @@
+name: MobCap
+version: 1.5
+description: Let's you wear mobs as hats
+author: KingMagnus(Dimensio)
+main: me.dimension.mobcap.MobCap
+commands:
+  mobcap:
+    description: Toggle your mobcap.
+    aliases:
+      - mc
+      - cap
+
+permissions:
+  mobcap.multi:
+    default: false
+  mobcap.all:
+    default: op
+    children:
+      mobcap.hostile.*: true
+      mobcap.passive.*: true
+      mobcap.multi: true
+  mobcap.passive.*:
+    children:
+      mobcap.passive.cow: true
+      mobcap.passive.chicken: true
+      mobcap.passive.bat: true
+      mobcap.passive.ocelot: true
+      mobcap.passive.villager: true
+      mobcap.passive.snowgolem: true
+      mobcap.passive.wolf: true
+      mobcap.passive.mooshroom: true
+      mobcap.passive.horse: true
+      mobcap.passive.sheep: true
+      mobcap.passive.pig: true
+      mobcap.passive.squid: true
+      mobcap.passive.irongolem: true
+  
+  mobcap.hostile.*:
+    children:
+      mobcap.hostile.zombie: true
+      mobcap.hostile.skeleton: true
+      mobcap.hostile.spider: true
+      mobcap.hostile.witherskeleton: true
+      mobcap.hostile.blaze: true
+      mobcap.hostile.cavespider: true
+      mobcap.hostile.ghast: true
+      mobcap.hostile.silverfish: true
+      mobcap.hostile.slime: true
+      mobcap.hostile.magma: true
+      mobcap.hostile.witch: true
+      mobcap.hostile.pigman: true
+      mobcap.hostile.enderman: true
