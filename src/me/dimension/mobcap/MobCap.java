@@ -1,6 +1,7 @@
 package me.dimension.mobcap;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -46,14 +47,15 @@ public class MobCap
         extends JavaPlugin
         implements Listener {
 
-    private String prefix = ChatColor.BLUE + "[Mob Cap] ";
+    private final String prefix = ChatColor.BLUE + "[Mob Cap] ";
     public static final Logger log = Logger.getLogger("Minecraft");
     public ArrayList<String> playercap = new ArrayList<String>();
 
+    @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
         PluginDescriptionFile pdfFile = getDescription();
-        log.info(this.prefix + "version v" + pdfFile.getVersion() + " is enabled.");
+        log.log(Level.INFO, "{0}version v{1} is enabled.", new Object[]{this.prefix, pdfFile.getVersion()});
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
@@ -754,6 +756,7 @@ public class MobCap
 
     
 
+    @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("mobcap")) {
             if (!(sender instanceof Player)) {
